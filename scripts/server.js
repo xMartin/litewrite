@@ -17,16 +17,21 @@ if (process.env.NODE_ENV !== 'production') {
 
   app.use(webpackHotMiddleware(compiler))
 } else {
-  app.get('/litewrite.js', function (req, res) {
-    res.sendFile(path.join(__dirname, '../litewrite.js'))
+  app.get('/litewrite.min.js', function (req, res) {
+    res.sendFile(path.join(__dirname, '../litewrite.min.js'))
   })
 }
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../index.html'))
-})
+function serveFile (relativePath) {
+  return function (req, res) {
+    res.sendFile(path.join(__dirname, '..', relativePath))
+  }
+}
+
+app.get('/', serveFile('index.html'))
 app.use('/img', express.static(path.join(__dirname, '../img')))
 app.use('/style', express.static(path.join(__dirname, '../style')))
+app.get('/cache.manifest', serveFile('cache.manifest'))
 
 if (require.main === module) {
   app.listen(port, function (error) {
