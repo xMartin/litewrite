@@ -4,6 +4,12 @@ const path = require('path')
 const app = express()
 const port = process.env.PORT || 8000
 
+function serveFile (relativePath) {
+  return function (req, res) {
+    res.sendFile(path.join(__dirname, '..', relativePath))
+  }
+}
+
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack')
   const webpackDevMiddleware = require('webpack-dev-middleware')
@@ -17,15 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   app.use(webpackHotMiddleware(compiler))
 } else {
-  app.get('/litewrite.min.js', function (req, res) {
-    res.sendFile(path.join(__dirname, '../litewrite.min.js'))
-  })
-}
-
-function serveFile (relativePath) {
-  return function (req, res) {
-    res.sendFile(path.join(__dirname, '..', relativePath))
-  }
+  app.get('/litewrite.min.js', serveFile('litewrite.min.js'))
 }
 
 app.get('/', serveFile('index.html'))
