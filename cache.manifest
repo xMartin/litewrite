@@ -1,14 +1,11 @@
 CACHE MANIFEST
-# 2015-11-30 14:40:41
+# 2015-11-30 15:31:47
 
 CACHE:
 litewrite.min.js
-style/litewrite.css
 style/Alegreya-Regular.ttf
 style/Alegreya-Bold.ttf
 style/Gregor-Regular.otf
-img/noise.png
-img/share.svg
 img/litewrite-touch.png
 img/litewrite-touch.svg
 img/litewrite.png

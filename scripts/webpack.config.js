@@ -19,6 +19,20 @@ var config = {
       {
         test: [/\.txt$/, /\.html$/],
         loader: 'raw'
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'style!css'
+      },
+      {
+        test: [/\.png$/, /\.svg$/],
+        exclude: /node_modules/,
+        loader: 'url'
+      },
+      {
+        test: [/\.ttf$/, /\.otf$/],
+        loader: 'file?name=[path][name].[ext]' // keep files in same location
       }
     ]
   },
@@ -47,6 +61,7 @@ if (process.env.NODE_ENV === 'production') {
   config.devtool = 'cheap-module-eval-source-map'
   config.entry.unshift('webpack-hot-middleware/client')
   config.plugins.push(new webpack.HotModuleReplacementPlugin())
+  config.module.loaders[1].loader = 'style!css?sourceMap'
 }
 
 module.exports = config

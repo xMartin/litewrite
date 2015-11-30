@@ -11,20 +11,20 @@ html, body {
 @font-face {
   font-family: 'Alegreya';
   font-weight: normal;
-  src: url(Alegreya-Regular.ttf);
+  src: url(./Alegreya-Regular.ttf);
 }
 
 @font-face {
   font-family: 'Alegreya';
   font-weight: bold;
-  src: url(Alegreya-Bold.ttf);
+  src: url(./Alegreya-Bold.ttf);
 }
 
 /* for cyrillic text */
 @font-face {
   font-family: 'Gregor';
   font-weight: normal;
-  src: url(Gregor-Regular.otf);
+  src: url(./Gregor-Regular.otf);
 }
 
 .scrollbox {
@@ -130,7 +130,7 @@ aside:hover, aside:focus, .show-aside aside {
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  // Default search style in Safari conflicts with our styling
+  /* Default search style in Safari conflicts with our styling */
   -webkit-appearance: textfield;
 }
 
