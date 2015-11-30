@@ -54,4 +54,15 @@ utils.timeAgo = function (date) {
   return translations[quantifier.name](count)
 }
 
+utils.handleAppcacheUpdates = function () {
+  var appcache = window.applicationCache
+  if (!appcache) return
+  appcache.addEventListener('updateready', function (e) {
+    if (appcache.status !== appcache.UPDATEREADY) return
+    var msg = 'A new version of Litewrite is available. Load it?'
+    if (!window.confirm(msg)) return
+    window.location.reload()
+  }, false)
+}
+
 module.exports = utils
