@@ -67,6 +67,7 @@ body > .scrollbox {
 
 #date {
 	position: relative;
+	float: left;
 	margin: 0 0 2% 4%;
 	opacity: .2;
 	font-size: 14px;
@@ -86,6 +87,7 @@ aside {
   width: 16%;
   min-width: 135px;
   height: 100%;
+  padding-right: 5px; /* If the sidebar has a scrollbar, there should be some space */
   opacity: 0;
   overflow: auto;
   -moz-user-select: none;
@@ -241,21 +243,45 @@ footer a {
 	display: none;
 }
 
-.share {
-	position: absolute;
-	top: 38px;
-	right: 0;
-	color: #000;
-	font-size: 15px;
-	background: url('../img/share.svg') no-repeat 5px center;
-	padding: 14px 6px 14px 28px;
-	border: none;
-	margin: 0;
-	opacity: .5;
-  cursor: pointer;
+.sharing {
+	color: #444;
+	font-size: 14px;
+	float: right;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	cursor: pointer;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 }
 
-.share-hide {
+.hide-sharing {
+	display: none;
+}
+
+.link {
+	color: #444;
+	text-decoration: none;
+	margin-right: 15px;
+	display: none;
+}
+
+.unshare {
+	display: none;
+}
+
+.share:hover,
+.link:hover,
+.unshare:hover {
+	text-decoration: underline;
+}
+
+.is-shared .link,
+.is-shared .unshare {
+	display: initial;
+}
+
+.is-shared .share {
 	display: none;
 }
 

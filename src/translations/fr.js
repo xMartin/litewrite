@@ -3,8 +3,10 @@ module.exports = {
   search: 'Rechercher …',
   footer: 'Ecrivez léger, écrivez libre !',
   share: 'partager',
+  unshare: 'cacher',
   open: 'ouvrir',
   modified: 'dernière modification',
+  updateCache: 'Une nouvelle version de Litewrite est disponible. La charger maintenant ?',
   welcome: require('./welcome-fr.txt'),
   secondsAgo: function (x) {
     if (x === 1) return 'il y a une seconde'

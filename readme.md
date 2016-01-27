@@ -26,6 +26,9 @@ Jorin & Jan-Christoph
 
 ## Contribute
 
+[![Build Status](https://travis-ci.org/litewrite/litewrite.svg?branch=master)](https://travis-ci.org/litewrite/litewrite)
+
+
 Play with the [development version](http://litewrite.github.com/litewrite), check out [issues](http://github.com/litewrite/litewrite/issues) and dive into the code if you like.
 
 Set up your development environment:

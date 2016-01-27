@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="cache.manifest">
 
 <head>
 	<meta charset="utf-8">
@@ -8,9 +8,13 @@
 	<title>Litewrite</title>
 	<meta name="description" content="distraction-free writing">
 
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
 	<link rel="stylesheet" href="style/litewrite.css">
 	<link rel="shortcut icon" href="img/litewrite.png">
 	<link rel="apple-touch-icon-precomposed" href="img/litewrite-touch.png">
+	<link rel="icon" sizes="192x192" href="img/litewrite-touch.png">
 </head>
 
 <body>
@@ -21,10 +25,14 @@
 
 		<div id="remotestorage-connect"></div>
     <textarea id="editor"></textarea>
+
+		<div id="sharing" class="sharing hide-sharing">
+    	<span class="share"></span>
+			<a class="link" target="litewrite-public"></a>
+			<span class="unshare"></span>
+		</div>
+
 		<div id="date"></div>
-    <a id="share" target="_blank" class="share-hide">
-      <button class="share"></button>
-    </a>
 	</div>
 
   <aside>

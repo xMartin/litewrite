@@ -12,7 +12,7 @@ Jorin & Jan-Christoph
 
 
 
-By the way, you can also use shortcuts to work more quickly:
+By the way, if you use a keyboard you can also use shortcuts to work more quickly:
 - Alt + n: new note
 - Alt + j: focus search field
 - Alt + ↑: switch to note above

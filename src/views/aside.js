@@ -9,7 +9,7 @@ var AsideView = Backbone.View.extend({
   el: 'body',
 
   initialize: function () {
-    _.bindAll(this, 'show', 'hide', 'toggle', 'desktopShow', 'desktopHide', 'showOrHide', 'handleSnapper')
+    _.bindAll(this, 'show', 'hide', 'toggle', 'desktopShow', 'desktopHide', 'handleSnapper')
 
     this.$sidebar = this.$('aside')
 
@@ -59,15 +59,6 @@ var AsideView = Backbone.View.extend({
   desktopHide: _.debounce(function () {
     if (utils.isDesktop) this.hide()
   }, 3000),
-
-  // only needed on initialization.
-  // show or hide aside depending on how many docs you have
-  showOrHide: function () {
-    // if only one doc or open doc empty return
-    if (this.collection.length < 2 || this.model.isEmpty()) return
-    this.show()
-    if (utils.isDesktop) _.delay(this.hide, 3000)
-  },
 
   handleSnapper: _.debounce(function () {
     if (utils.isMobile) return this.snapper.enable()

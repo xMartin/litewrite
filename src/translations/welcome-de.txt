@@ -11,7 +11,7 @@ Wir hoffen, dass es dir hier gefällt!
 Jorin & Jan-Christoph
 
 
-Du kannst übrigens auch Tastenkürzel nutzen, um schneller zu arbeiten:
+Wenn du eine Tastatur benutzt, kannst du übrigens auch Tastenkürzel nutzen, um schneller zu arbeiten:
 - Alt + n: Neue Notiz
 - Alt + j: Suchfeld fokussieren
 - Alt + ↑: Zur Notiz darüber wechseln

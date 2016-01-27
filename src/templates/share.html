@@ -5,20 +5,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
 
-  <title><%= title %></title>
+  <title><%- title %></title>
   <meta name="description" content="Litewrite Document">
 
   <style>
+  html {
+    height: 100%;
+  }
+
   body {
     font: normal 24px/150% 'Alegreya', Georgia, serif;
+    max-width: 800px;
     width: 92%;
-    margin: 0;
+    height: 100%;
     padding: 3.5% 4% 8% 4%;
-    min-height: 84%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   p {
+    min-height: 92%;
     margin: 0;
+    padding-bottom: 4%;
     white-space: pre-wrap;
   }
 
@@ -31,9 +39,9 @@
 
 <body>
 
-    <p><%= content %></p>
+    <p><%- content %></p>
 
-    <span class="date"><%= date %></span>
+    <span class="date"><%- date %></span>
 
 </body>
 

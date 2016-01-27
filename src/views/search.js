@@ -41,6 +41,10 @@ var SearchView = Backbone.View.extend({
     this.trigger('focus')
   },
 
+  isFocused: function () {
+    return this.$el.is(':focus')
+  },
+
   show: function () {
     this.$el.removeClass('hide')
   },

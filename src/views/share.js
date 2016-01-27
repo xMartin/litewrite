@@ -6,32 +6,33 @@ var remoteStorage = require('remotestorage')
 var remoteStorageDocuments = require('remotestorage-documents')
 
 var ShareView = Backbone.View.extend({
-  el: '#share',
+  el: '#sharing',
 
   initialize: function () {
     _.bindAll(this, 'setLink', 'updatePublic', 'show', 'hide')
-
     this.remote = remoteStorageDocuments.publicList('notes')
-
     this.template = _.template(template)
 
-    this.$button = this.$('button')
+    this.$shareButton = this.$('.share')
+    this.$link = this.$('.link')
+    this.$unshareButton = this.$('.unshare')
 
     this.model.on('change:public', this.setLink)
     this.collection.on('sync', this.updatePublic)
 
-    this.setLink()
+    this.render()
   },
 
   events: {
-    'click': 'openOrShare'
+    'click .share': 'share',
+    'click .unshare': 'unshare'
   },
 
-  openOrShare: function (e) {
-    if (this.model.get('public')) return
-    e.preventDefault()
-
-    this.share()
+  render: function () {
+    this.$shareButton.text(lang.share)
+    this.$link.text(lang.open)
+    this.$unshareButton.text(lang.unshare)
+    this.setLink()
   },
 
   share: function () {
@@ -43,11 +44,19 @@ var ShareView = Backbone.View.extend({
     }, this))
   },
 
+  unshare: function () {
+    var publicId = this.model.get('public').split('/').slice(-2).join('/')
+    this.remote.remove(publicId).then(_.bind(function (url) {
+      remoteStorage.sync.sync().then(_.bind(function () {
+        this.model.set('public', null)
+      }, this))
+    }, this))
+  },
+
   setLink: function () {
     var link = this.model.get('public')
-    if (!link) return this.$button.text(lang.share)
-    this.$el.attr('href', this.model.get('public'))
-    this.$button.text(lang.open)
+    if (link) this.$link.attr('href', link)
+    this.$el.toggleClass('is-shared', !!link)
   },
 
   updatePublic: function (doc) {
@@ -64,11 +73,11 @@ var ShareView = Backbone.View.extend({
   },
 
   show: function () {
-    this.$el.removeClass('share-hide')
+    this.$el.removeClass('hide-sharing')
   },
 
   hide: function () {
-    this.$el.addClass('share-hide')
+    this.$el.addClass('hide-sharing')
   }
 
 })
