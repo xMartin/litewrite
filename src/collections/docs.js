@@ -3,8 +3,8 @@ var Backbone = require('backbone')
 var Doc = require('../models/doc')
 var rsSync = require('rs-adapter')
 var lang = require('../translations')
-var remoteStorage = require('remotestorage')
-var remoteStorageDocuments = require('remotestorage-documents')
+//var remoteStorage = require('remotestorage')
+//var remoteStorageDocuments = require('remotestorage-documents')
 
 var Docs = Backbone.Collection.extend({
   model: Doc,
@@ -18,14 +18,13 @@ var Docs = Backbone.Collection.extend({
       .on('change:lastEdited', this.sort)
       .on('change:lastEdited', this.save)
 
-    this.once('sync', this.welcome)
-
-    this.initRemotestorage()
+    //this.once('sync', this.welcome)
+    //this.initRemotestorage()
   },
 
   addNew: _.throttle(function (options) {
     return this.add(_.defaults(options || {}, {
-      id: this.remote.uuid(),
+      id: ('' + Math.random()).substring(2),
       lastEdited: Date.now()
     }))
   }, 1000, { leading: true }),

@@ -36,13 +36,13 @@ var config = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(
+  /*config.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false
       }
     })
-  )
+)*/
 } else {
   config.devtool = 'cheap-module-eval-source-map'
   config.entry.unshift('webpack-hot-middleware/client')

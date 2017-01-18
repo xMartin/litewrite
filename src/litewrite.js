@@ -1,6 +1,6 @@
 var _ = require('underscore')
 var Backbone = require('backbone')
-var remoteStorage = require('remotestorage')
+//var remoteStorage = require('remotestorage')
 var AppView = require('./views/app')
 var Doc = require('./models/doc')
 var Docs = require('./collections/docs')
@@ -32,10 +32,10 @@ _.extend(Litewrite.prototype, Backbone.Events, {
 
     this.app = new AppView({ litewrite: this, model: this.doc, collection: this.docs })
 
-    remoteStorage.displayWidget('remotestorage-connect')
+    //remoteStorage.displayWidget('remotestorage-connect')
 
-    remoteStorage.on('ready', this.triggerConnected)
-    remoteStorage.on('disconnected', this.triggerDisconnected)
+    //remoteStorage.on('ready', this.triggerConnected)
+    //remoteStorage.on('disconnected', this.triggerDisconnected)
   },
 
   loadDoc: function () {

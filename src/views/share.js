@@ -2,15 +2,15 @@ var _ = require('underscore')
 var Backbone = require('backbone')
 var template = require('../templates/share.html')
 var lang = require('../translations')
-var remoteStorage = require('remotestorage')
-var remoteStorageDocuments = require('remotestorage-documents')
+//var remoteStorage = require('remotestorage')
+//var remoteStorageDocuments = require('remotestorage-documents')
 
 var ShareView = Backbone.View.extend({
   el: '#sharing',
 
   initialize: function () {
     _.bindAll(this, 'setLink', 'updatePublic', 'show', 'hide')
-    this.remote = remoteStorageDocuments.publicList('notes')
+    //this.remote = remoteStorageDocuments.publicList('notes')
     this.template = _.template(template)
 
     this.$shareButton = this.$('.share')
