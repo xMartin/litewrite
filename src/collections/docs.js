@@ -1,7 +1,7 @@
 var _ = require('underscore')
 var Backbone = require('backbone')
 var Doc = require('../models/doc')
-var rsSync = require('rs-adapter')
+// var rsSync = require('rs-adapter')
 var lang = require('../translations')
 //var remoteStorage = require('remotestorage')
 //var remoteStorageDocuments = require('remotestorage-documents')
@@ -9,7 +9,7 @@ var lang = require('../translations')
 var Docs = Backbone.Collection.extend({
   model: Doc,
 
-  sync: rsSync,
+  // sync: rsSync,
 
   initialize: function (models, options) {
     _.bindAll(this, 'sort', 'save', 'welcome', 'rsChange')

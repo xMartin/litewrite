@@ -26,9 +26,10 @@ _.extend(Litewrite.prototype, Backbone.Events, {
       .on('change:id', this.setUrl)
       .on('change', this.updateDocs)
 
-    this.state.fetch().always(_.bind(function () {
-      this.docs.fetch().always(this.loadDoc)
-    }, this))
+    this.state.fetch();
+    // this.state.fetch().always(_.bind(function () {
+    //   this.docs.fetch().always(this.loadDoc)
+    // }, this))
 
     this.app = new AppView({ litewrite: this, model: this.doc, collection: this.docs })
 

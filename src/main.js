@@ -2,7 +2,7 @@ require('es6-promise').polyfill()
 require('match-media')
 require('window.requestanimationframe')
 var Backbone = require('backbone')
-var nc = require('./nc')
+var nextcloud = require('./nextcloud')
 var Litewrite = require('./litewrite')
 var Router = require('./router')
 var utils = require('./utils')
@@ -15,7 +15,7 @@ utils.handleAppcacheUpdates()
 var litewrite = new Litewrite()
 startHistory();
 
-nc()
+nextcloud()
 .then(function(results) {
   results.forEach(function(result) {
     litewrite.docs.addNew({title: result.title, content: result.text})

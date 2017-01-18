@@ -1,6 +1,6 @@
 var _ = require('underscore')
 var Backbone = require('backbone')
-var rsSync = require('rs-adapter')
+// var rsSync = require('rs-adapter')
 var timeAgo = require('../utils').timeAgo
 
 var Doc = Backbone.Model.extend({
@@ -11,7 +11,7 @@ var Doc = Backbone.Model.extend({
     public: null
   },
 
-  sync: rsSync,
+  // sync: rsSync,
 
   isEmpty: function () {
     return this.get('content').trim() === ''
